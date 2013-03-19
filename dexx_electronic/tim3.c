@@ -1,9 +1,14 @@
-/*
- * tim3.c
+/** \file main.c
+ * \brief Configuration functions for Timer3
+ * \details
  *
- *  Created on: 30-09-2012
- *      Author: dexx
+ * \author Dexx, http://www.dexx.ovh.org/
+ * \date 30-09-2012
+ * \todo Remove unnecessary elements
+ * \todo Doxygen description for all functions
+ * \todo Move this file to special library folder
  */
+
 #include "tim3.h"
 #include "config.h"
 

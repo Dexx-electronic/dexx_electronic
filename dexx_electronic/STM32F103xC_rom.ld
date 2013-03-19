@@ -31,7 +31,7 @@ OUTPUT_ARCH(arm);
 /* Handler mode (core exceptions / interrupts) can use only main stack */
 /* Thread mode can use main stack (default) or process stack - selected in CONTROL special register */
 
-__main_stack_size = 128;
+__main_stack_size = 256;
 __process_stack_size = 1024;
 
 PROVIDE(__main_stack_size = __main_stack_size);
