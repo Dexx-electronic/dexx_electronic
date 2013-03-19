@@ -1,4 +1,13 @@
-
+/** \file main.c
+ * \brief Template for telemetry system
+ * \details  *
+ * \author Dexx, http://www.dexx.ovh.org/
+ * \date 2013.01
+ * \todo 1. interrupt based UART connection
+ * \todo 2. frysky protocol parser
+ * \todo 3. LCD handling
+ * \todo 4.
+ */
 
 /******************************************************************************
 * project: Dexx-electronic
@@ -33,12 +42,9 @@
 #include <stdint.h>
 
 #include "inc/stm32f10x.h"
-
 #include "config.h"
-
 #include "hdr/hdr_rcc.h"
 #include "hdr/hdr_gpio.h"
-
 #include "gpio.h"
 #include "tim3.h"
 
@@ -203,6 +209,14 @@ static void system_init(void)
 	exti_init();
 }
 
+
+void frysky_parser(void)
+{
+	uint8_t i_parser = 0;
+
+	if(i_parser == i_rx) // if parser had interpreted whole buffer
+		i_rx = 0;			// move buffer index to first position
+}
 /*
 +=============================================================================+
 | ISRs
@@ -221,7 +235,15 @@ void EXTI0_IRQHandler(void)
 }
 
 
+void USART1_IRQHandler(void)
+{
+	while(1);
+// \todo USART1	if(interrupt flag)
+	{
+		b_rx[i_rx++] = USART1 ->DR;
+	}
 
+}
 /******************************************************************************
 * END OF FILE
 ******************************************************************************/

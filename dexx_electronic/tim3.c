@@ -1,4 +1,4 @@
-/** \file main.c
+/** \file tim3.c
  * \brief Configuration functions for Timer3
  * \details
  *

@@ -5,6 +5,9 @@
  *      Author: pldraspa
  */
 
+
+// \todo unlink useless headers
+
 #ifndef USART1_H_
 #define USART1_H_
 
@@ -17,8 +20,13 @@
 #include "config.h"
 
 
+// \todo Replace USART1 RX buffer with DMA
+#define USART1_RX_BUFFER_SIZE 250 // Sets maximum size for rx buffer;
 #define USART1_BOUNDRATE 9600
 
+
+uint8_t i_rx; 		// receive buffer index
+uint8_t b_rx[255]; //input frame buffer
 
 
 

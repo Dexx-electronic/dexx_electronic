@@ -6,6 +6,10 @@
  */
 
 #include "usart1.h"
+/**
+ * \todo Interrupt based receiver
+ */
+
 
 void usart1_init(void) {
 
@@ -34,6 +38,12 @@ void usart1_init(void) {
 
 	// UE - USART ENABLE, TE - Transmitter Enable, RE - Reciver Enable
 	USART1 ->CR1 |= USART_CR1_UE | USART_CR1_TE	| USART_CR1_RE;
+
+
+	// Set initial values
+	for(i_rx = 0; i_rx <USART1_RX_BUFFER_SIZE; i_rx++)
+		b_rx[i_rx] = 0; //input frame buffer
+	i_rx = 0;
 }
 
 void usart1_putc(char znak) {
@@ -43,19 +53,4 @@ void usart1_putc(char znak) {
 
 }
 
-//
-//
-//while(1){
-//   bios_usart1Putc('T');
-//   bios_usart1Putc('E');
-//   bios_usart1Putc('S');
-//   bios_usart1Putc('T');
-//   bios_usart1Putc('!');
-//
-//   while(((GPIOA->IDR)&1)!=1); // wait for key
-//   GPIOC->ODR|=1<<9;         // led on
-//   while(((GPIOA->IDR)&1)!=0); // wait for key release
-//   GPIOC->ODR&=(~1)<<9;      // led off
-//
-//}
-//}
+
